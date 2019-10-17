@@ -44,61 +44,10 @@ class SignUpState extends State<SignUp> {
           children: <Widget>[
 
             //First Name
-            Padding(
-              padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
-              child: TextFormField(
-                controller: firstNameController,
-                validator: (String value) {
-                  if (value.isEmpty) {
-                    return "Enter the First Name";
-                  }
-                  return null;
-                },
-                keyboardType: TextInputType.text,
-                style: textStyle,
-                decoration: InputDecoration(
-                    labelText: "First Name",
-                    labelStyle: Theme.of(context).textTheme.body1,
-                    errorStyle: TextStyle(
-                      color: Colors.redAccent,
-                      fontSize: 15.0,
-                    ),
-                    hintText: "John",
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                    ),
-                ),
-              ),
-            ),
+            fieldSet(firstNameController, 'Enter the First Name', 'First Name','John'),
 
             // Last Name
-            Padding(
-              padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
-              child: TextFormField(
-                controller: lastNameController,
-                validator: (String value) {
-                  if (value.isEmpty) {
-                    return "Enter the Last Name";
-                  }
-                  return null;
-                },
-                keyboardType: TextInputType.text,
-                style: textStyle,
-                decoration: InputDecoration(
-                  labelText: "Last Name",
-                  labelStyle: Theme.of(context).textTheme.body1,
-                  errorStyle: TextStyle(
-                    color: Colors.redAccent,
-                    fontSize: 15.0,
-                  ),
-                  hintText: "Perera",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                ),
-              ),
-            ),
-
+            fieldSet(lastNameController, 'Enter the Last Name', 'Last Name','Perera'),
             //E mail
             Padding(
               padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
@@ -210,8 +159,39 @@ class SignUpState extends State<SignUp> {
                 ),
               ),
             ),
-
           ],
+        ),
+      ),
+    );
+
+  }
+
+
+  Widget fieldSet(TextEditingController txtController,String retEmpty,String lblText,[String hintTxt]){
+    TextStyle textStyle = Theme.of(context).textTheme.title;
+    return Padding(
+      padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
+      child: TextFormField(
+        controller: txtController,
+        validator: (String value) {
+          if (value.isEmpty) {
+            return retEmpty;
+          }
+          return null;
+        },
+        keyboardType: TextInputType.text,
+        style: textStyle,
+        decoration: InputDecoration(
+          labelText: lblText,
+          labelStyle: Theme.of(context).textTheme.body1,
+          errorStyle: TextStyle(
+            color: Colors.redAccent,
+            fontSize: 15.0,
+          ),
+          hintText: hintTxt,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5.0),
+          ),
         ),
       ),
     );
