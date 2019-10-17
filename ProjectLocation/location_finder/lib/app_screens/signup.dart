@@ -44,10 +44,10 @@ class SignUpState extends State<SignUp> {
           children: <Widget>[
 
             //First Name
-            fieldSet(firstNameController, 'Enter the First Name', 'First Name','John'),
+            nameFieldSet(firstNameController, 'Enter the First Name', 'First Name','John'),
 
             // Last Name
-            fieldSet(lastNameController, 'Enter the Last Name', 'Last Name','Perera'),
+            nameFieldSet(lastNameController, 'Enter the Last Name', 'Last Name','Perera'),
             //E mail
             Padding(
               padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
@@ -159,6 +159,18 @@ class SignUpState extends State<SignUp> {
                 ),
               ),
             ),
+            RaisedButton(
+              child: Text(
+                'Submit'
+              ),
+              onPressed: (){
+                setState(() {
+                  if(_formKey.currentState.validate()){
+                    
+                  }
+                });
+              },
+            )
           ],
         ),
       ),
@@ -167,7 +179,7 @@ class SignUpState extends State<SignUp> {
   }
 
 
-  Widget fieldSet(TextEditingController txtController,String retEmpty,String lblText,[String hintTxt]){
+  Widget nameFieldSet(TextEditingController txtController,String retEmpty,String lblText,[String hintTxt]){
     TextStyle textStyle = Theme.of(context).textTheme.title;
     return Padding(
       padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
