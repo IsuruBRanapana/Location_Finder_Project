@@ -12,12 +12,12 @@ class SignUpState extends State<SignUp> {
   var _formKey = GlobalKey<FormState>();
   double _minimumPadding=5.0;
 
-  TextEditingController first_name_controller=TextEditingController();
-  TextEditingController last_name_controller=TextEditingController();
-  TextEditingController email_controller=TextEditingController();
-  TextEditingController phone_number_controller=TextEditingController();
-  TextEditingController password_controller=TextEditingController();
-  TextEditingController con_password_controller=TextEditingController();
+  TextEditingController firstNameController=TextEditingController();
+  TextEditingController lastNameController=TextEditingController();
+  TextEditingController emailController=TextEditingController();
+  TextEditingController phoneNumberController=TextEditingController();
+  TextEditingController passwordController=TextEditingController();
+  TextEditingController conPasswordController=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class SignUpState extends State<SignUp> {
             Padding(
               padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
               child: TextFormField(
-                controller: first_name_controller,
+                controller: firstNameController,
                 validator: (String value) {
                   if (value.isEmpty) {
                     return "Enter the First Name";
@@ -57,19 +57,160 @@ class SignUpState extends State<SignUp> {
                 keyboardType: TextInputType.text,
                 style: textStyle,
                 decoration: InputDecoration(
-                    labelText: "Rate of Interest",
-                    labelStyle: textStyle,
+                    labelText: "First Name",
+                    labelStyle: Theme.of(context).textTheme.body1,
                     errorStyle: TextStyle(
-                      color: Colors.yellowAccent,
+                      color: Colors.redAccent,
                       fontSize: 15.0,
                     ),
-                    hintText: "In percent",
+                    hintText: "John",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
                     ),
                 ),
               ),
-            )
+            ),
+
+            // Last Name
+            Padding(
+              padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
+              child: TextFormField(
+                controller: lastNameController,
+                validator: (String value) {
+                  if (value.isEmpty) {
+                    return "Enter the Last Name";
+                  }
+                  return null;
+                },
+                keyboardType: TextInputType.text,
+                style: textStyle,
+                decoration: InputDecoration(
+                  labelText: "Last Name",
+                  labelStyle: Theme.of(context).textTheme.body1,
+                  errorStyle: TextStyle(
+                    color: Colors.redAccent,
+                    fontSize: 15.0,
+                  ),
+                  hintText: "Perera",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                ),
+              ),
+            ),
+
+            //E mail
+            Padding(
+              padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
+              child: TextFormField(
+                controller: emailController,
+                validator: (String value) {
+                  if (value.isEmpty) {
+                    return "Enter the E mail Address";
+                  }
+                  return null;
+                },
+                keyboardType: TextInputType.emailAddress,
+                style: textStyle,
+                decoration: InputDecoration(
+                  labelText: "Email",
+                  labelStyle: Theme.of(context).textTheme.body1,
+                  errorStyle: TextStyle(
+                    color: Colors.redAccent,
+                    fontSize: 15.0,
+                  ),
+                  hintText: "Johnperera@gmail.com",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                ),
+              ),
+            ),
+
+            //Phone Number
+            Padding(
+              padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
+              child: TextFormField(
+                controller: phoneNumberController,
+                validator: (String value) {
+                  if (value.isEmpty) {
+                    return "Enter Your Phone Number";
+                  }
+                  return null;
+                },
+                keyboardType: TextInputType.phone,
+                style: textStyle,
+                decoration: InputDecoration(
+                  labelText: "Phone Number",
+                  labelStyle: Theme.of(context).textTheme.body1,
+                  errorStyle: TextStyle(
+                    color: Colors.redAccent,
+                    fontSize: 15.0,
+                  ),
+                  hintText: "0123456789",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                ),
+              ),
+            ),
+
+            //Password
+            Padding(
+              padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
+              child: TextFormField(
+                controller: passwordController,
+                validator: (String value) {
+                  if (value.isEmpty) {
+                    return "Enter the Password";
+                  }
+                  return null;
+                },
+                keyboardType: TextInputType.text,
+                style: textStyle,
+                decoration: InputDecoration(
+                  labelText: "Password",
+                  labelStyle: Theme.of(context).textTheme.body1,
+                  errorStyle: TextStyle(
+                    color: Colors.redAccent,
+                    fontSize: 15.0,
+                  ),
+                  hintText: "",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                ),
+              ),
+            ),
+
+            //confirm Password
+            Padding(
+              padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
+              child: TextFormField(
+                controller: conPasswordController,
+                validator: (String value) {
+                  if (value.isEmpty) {
+                    return "Enter the Password";
+                  }
+                  return null;
+                },
+                keyboardType: TextInputType.text,
+                style: textStyle,
+                decoration: InputDecoration(
+                  labelText: "Confirm Password",
+                  labelStyle: Theme.of(context).textTheme.body1,
+                  errorStyle: TextStyle(
+                    color: Colors.redAccent,
+                    fontSize: 15.0,
+                  ),
+                  hintText: "",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                ),
+              ),
+            ),
+
           ],
         ),
       ),
