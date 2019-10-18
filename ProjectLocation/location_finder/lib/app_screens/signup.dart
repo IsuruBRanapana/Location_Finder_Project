@@ -36,6 +36,12 @@ class SignUpState extends State<SignUp> {
 
   Widget signUpForm() {
     TextStyle textStyle = Theme.of(context).textTheme.title;
+    bool _isHidden=true;
+    void _passwordVisibility(){
+      setState(() {
+        _isHidden= !_isHidden;
+      });
+    }
     return Form(
       key: _formKey,
       child: Padding(
@@ -63,6 +69,7 @@ class SignUpState extends State<SignUp> {
                 style: textStyle,
                 decoration: InputDecoration(
                   labelText: "Email",
+                  prefixIcon: Icon(Icons.email),
                   labelStyle: Theme.of(context).textTheme.body1,
                   errorStyle: TextStyle(
                     color: Colors.redAccent,
@@ -91,6 +98,7 @@ class SignUpState extends State<SignUp> {
                 style: textStyle,
                 decoration: InputDecoration(
                   labelText: "Phone Number",
+                  prefixIcon: Icon(Icons.phone_iphone),
                   labelStyle: Theme.of(context).textTheme.body1,
                   errorStyle: TextStyle(
                     color: Colors.redAccent,
@@ -109,7 +117,6 @@ class SignUpState extends State<SignUp> {
               padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
               child: TextFormField(
                 controller: passwordController,
-                obscureText: true,
                 validator: (String value) {
                   if (value.isEmpty) {
                     return "Enter the Password";
@@ -119,13 +126,19 @@ class SignUpState extends State<SignUp> {
                 keyboardType: TextInputType.text,
                 style: textStyle,
                 decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.lock_outline),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.visibility_off),
+                    onPressed: (){
+                    },
+                  ),
                   labelText: "Password",
                   labelStyle: Theme.of(context).textTheme.body1,
                   errorStyle: TextStyle(
                     color: Colors.redAccent,
                     fontSize: 15.0,
                   ),
-                  hintText: "",
+                  hintText: "Password",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0),
                   ),
@@ -151,6 +164,12 @@ class SignUpState extends State<SignUp> {
                 keyboardType: TextInputType.text,
                 style: textStyle,
                 decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.lock_outline),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.visibility_off),
+                    onPressed: (){
+                    },
+                  ),
                   labelText: "Confirm Password",
                   labelStyle: Theme.of(context).textTheme.body1,
                   errorStyle: TextStyle(
@@ -200,6 +219,7 @@ class SignUpState extends State<SignUp> {
         style: textStyle,
         decoration: InputDecoration(
           labelText: lblText,
+          prefixIcon: Icon(Icons.account_circle),
           labelStyle: Theme.of(context).textTheme.body1,
           errorStyle: TextStyle(
             color: Colors.redAccent,
