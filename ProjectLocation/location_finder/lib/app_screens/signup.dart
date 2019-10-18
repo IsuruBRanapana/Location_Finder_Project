@@ -109,6 +109,7 @@ class SignUpState extends State<SignUp> {
               padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
               child: TextFormField(
                 controller: passwordController,
+                obscureText: true,
                 validator: (String value) {
                   if (value.isEmpty) {
                     return "Enter the Password";
@@ -137,8 +138,12 @@ class SignUpState extends State<SignUp> {
               padding: EdgeInsets.only(top: _minimumPadding,bottom: _minimumPadding),
               child: TextFormField(
                 controller: conPasswordController,
+                obscureText: true,
                 validator: (String value) {
                   if (value.isEmpty) {
+                    /*if(passwordController.text!=conPasswordController.text){
+                      return "Password Not Match";
+                    }*/
                     return "Enter the Password";
                   }
                   return null;
@@ -166,7 +171,7 @@ class SignUpState extends State<SignUp> {
               onPressed: (){
                 setState(() {
                   if(_formKey.currentState.validate()){
-                    
+
                   }
                 });
               },
