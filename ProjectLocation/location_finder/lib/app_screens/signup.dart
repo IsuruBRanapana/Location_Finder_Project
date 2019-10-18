@@ -9,6 +9,20 @@ class SignUp extends StatefulWidget {
 }
 
 class SignUpState extends State<SignUp> {
+  bool _isHiddenPw=true;
+  bool _isHiddenCPw=true;
+  void _visiblePw(){
+    setState(() {
+      _isHiddenPw=!_isHiddenPw;
+      _isHiddenCPw=_isHiddenCPw;
+    });
+  }
+  void _visibleCPw(){
+    setState(() {
+      _isHiddenPw=_isHiddenPw;
+      _isHiddenCPw=!_isHiddenCPw;
+    });
+  }
   var _formKey = GlobalKey<FormState>();
   double _minimumPadding=5.0;
 
@@ -36,12 +50,6 @@ class SignUpState extends State<SignUp> {
 
   Widget signUpForm() {
     TextStyle textStyle = Theme.of(context).textTheme.title;
-    bool _isHidden=true;
-    void _passwordVisibility(){
-      setState(() {
-        _isHidden= !_isHidden;
-      });
-    }
     return Form(
       key: _formKey,
       child: Padding(
@@ -128,9 +136,8 @@ class SignUpState extends State<SignUp> {
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.lock_outline),
                   suffixIcon: IconButton(
-                    icon: Icon(Icons.visibility_off),
-                    onPressed: (){
-                    },
+                    onPressed: _visiblePw,
+                    icon: _isHiddenPw? Icon(Icons.visibility_off):Icon(Icons.visibility),
                   ),
                   labelText: "Password",
                   labelStyle: Theme.of(context).textTheme.body1,
@@ -166,9 +173,8 @@ class SignUpState extends State<SignUp> {
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.lock_outline),
                   suffixIcon: IconButton(
-                    icon: Icon(Icons.visibility_off),
-                    onPressed: (){
-                    },
+                    onPressed: _visibleCPw,
+                    icon: _isHiddenCPw? Icon(Icons.visibility_off):Icon(Icons.visibility),
                   ),
                   labelText: "Confirm Password",
                   labelStyle: Theme.of(context).textTheme.body1,
