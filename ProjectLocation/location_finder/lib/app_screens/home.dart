@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:brew_crew/screens/editprofile.dart';
+import 'package:location_finder/app_screens/editprofile.dart';
 class Home extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
