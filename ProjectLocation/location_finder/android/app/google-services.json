@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "65258613381",
+    "firebase_url": "https://location-finder-dbdfc.firebaseio.com",
+    "project_id": "location-finder-dbdfc",
+    "storage_bucket": "location-finder-dbdfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65258613381:android:aba5a887d8252226c457ec",
+        "android_client_info": {
+          "package_name": "com.isuru.location_finder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65258613381-9hgk7rsn8t4bcb6lvljeqpir22uguq6h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnH7svVZvBKkb3qMhrDYn7sBjN-7WZREY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65258613381-9hgk7rsn8t4bcb6lvljeqpir22uguq6h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:location_finder/app_screens/signup.dart';
+import 'package:location_finder/app_screens/home.dart';
+import 'package:location_finder/app_screens/auth.dart';
 
 class Login extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return LoginState();
   }
 }
@@ -35,7 +36,6 @@ class LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -156,9 +156,41 @@ class LoginState extends State<Login> {
                 ),
                 textColor: Colors.white,
                 color: Color(0xFF9400D3),
+                onPressed: ()async {
+                  if(emailController.text.isEmpty||passwordController.text.isEmpty){
+                    print('Enter these');
+                    return;
+                  }else{
+                  bool res=await AuthService().signInWithEmail(emailController.text, passwordController.text);
+                  if(res==true){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=>Home())
+                    );}
+                  }
+                  /*setState(() {
+                    if (_formKey.currentState.validate()) {
+                      //TODO search valid user
+                      //TODO Navigate to Home page
+                      bool res= AuthProvider().signInWithEmail(emailController.text, passwordController.text);
+
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (context)=>Home())
+                      );
+                    }
+                  });*/
+                },
+              ),
+
+              RaisedButton(
+                child: Text(
+                  'Login with Google',
+                  textScaleFactor: 1.2,
+                ),
+                textColor: Colors.white,
+                color: Color(0xFF9400D3),
                 onPressed: () {
                   setState(() {
-                    if (_formKey.currentState.validate()) {}
+
                   });
                 },
               ),
@@ -179,13 +211,13 @@ class LoginState extends State<Login> {
                         style: TextStyle(
                             color: Colors.deepPurpleAccent,
                             fontSize: 16.0,
-                            fontWeight: FontWeight.bold), 
+                            fontWeight: FontWeight.bold),
                       ),
                       onTap: (){
                         Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignUp()),
-                );
+                          context,
+                          MaterialPageRoute(builder: (context) => SignUp()),
+                        );
                       },
                     ),
                   ],

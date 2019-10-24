@@ -1,6 +1,6 @@
 # location_finder
 
-This is an application that can be use to find location of friends
+A new Flutter project.
 
 ## Getting Started
 
