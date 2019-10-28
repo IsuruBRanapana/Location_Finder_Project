@@ -188,7 +188,15 @@ class LoginState extends State<Login> {
                 ),
                 textColor: Colors.white,
                 color: Color(0xFF9400D3),
-                onPressed: () {
+                onPressed: () async {
+                  bool res=await AuthService().signInWithGoogle();
+                  if(!res){
+                    print('Error log in with google');
+                  }else{
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=>Home())
+                    );
+                  }
                   setState(() {
 
                   });
