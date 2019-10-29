@@ -167,6 +167,7 @@ class LoginState extends State<Login> {
                         MaterialPageRoute(builder: (context)=>Home())
                     );}
                   }
+                  //todo: set state
                   /*setState(() {
                     if (_formKey.currentState.validate()) {
                       //TODO search valid user
@@ -184,6 +185,28 @@ class LoginState extends State<Login> {
               RaisedButton(
                 child: Text(
                   'Login with Google',
+                  textScaleFactor: 1.2,
+                ),
+                textColor: Colors.white,
+                color: Color(0xFF9400D3),
+                onPressed: () async {
+                  bool res=await AuthService().signInWithGoogle();
+                  if(!res){
+                    print('Error log in with google');
+                  }else{
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=>Home())
+                    );
+                  }
+                  setState(() {
+                    //todo: set state
+                  });
+                },
+              ),
+
+              RaisedButton(
+                child: Text(
+                  'Login with Facebook',
                   textScaleFactor: 1.2,
                 ),
                 textColor: Colors.white,
